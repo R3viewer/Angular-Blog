@@ -1,0 +1,24 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}"
+    [ngStyle]="{'color': getColor()}">
+  <div class="row">
+    <div class="col-xs-8">
+        <h4>{{ post.title }}</h4>
+    </div>
+    <div class="col-xs-4 text-right">
+        <p>{{ post.created_at | date: 'short' }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12">
+        <button (click)="addLove()" type="button" class="btn btn-success float-left" style="margin-left: 2px; margin-right: 2px"> Love it!</button>
+        <button (click)="removeLove()" type="button" class="btn btn-danger" style="margin-left: 2px; margin-right: 2px"> Don't Love it!</button>
+      </div>
+  </div>
+</li>
